@@ -350,11 +350,19 @@
                             <option value="Physical Touch">Physical Touch</option>
                         </select>
                     </div>
+                    <!-- Q5 (New) -->
+                    <div>
+                        <p class="font-medium mb-3">5. Perfect Sunday Morning? 🌅</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="glass-panel choice-card p-3 rounded-xl text-center" onclick="selectChoice('sunday', 'Cuddles in Bed', this)">Cuddles in Bed 🛌</div>
+                            <div class="glass-panel choice-card p-3 rounded-xl text-center" onclick="selectChoice('sunday', 'Breakfast Date', this)">Breakfast Date 🥞</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-8 flex justify-between">
                     <button onclick="prevStep(2)" class="text-gray-500 hover:text-pink-500 font-medium px-4">← Back</button>
-                    <button onclick="validateChoicesAndNext(3, 4, ['drink', 'vacation', 'vibe'], 'q-lovelanguage')" class="btn-primary font-semibold py-2 px-8 rounded-full shadow-lg">
+                    <button onclick="validateChoicesAndNext(3, 4, ['drink', 'vacation', 'vibe', 'sunday'], 'q-lovelanguage')" class="btn-primary font-semibold py-2 px-8 rounded-full shadow-lg">
                         Next Phase →
                     </button>
                 </div>
@@ -394,11 +402,15 @@
                         <label class="block font-medium mb-1">Complete this sentence: "The CEO is..." ✍️</label>
                         <input type="text" id="q-ceo-is" class="input-field" placeholder="...">
                     </div>
+                    <div>
+                        <label class="block font-medium mb-1">Your favorite physical feature of the CEO? 🫣</label>
+                        <input type="text" id="q-feature" class="input-field" placeholder="His eyes, smile, etc...">
+                    </div>
                 </div>
 
                 <div class="mt-8 flex justify-between">
                     <button onclick="prevStep(3)" class="text-gray-500 hover:text-pink-500 font-medium px-4">← Back</button>
-                    <button onclick="saveAndNext(4, 5, ['q-humor', 'q-steal', 'q-nickname', 'q-ceo-is'])" class="btn-primary font-semibold py-2 px-8 rounded-full shadow-lg">
+                    <button onclick="saveAndNext(4, 5, ['q-humor', 'q-steal', 'q-nickname', 'q-ceo-is', 'q-feature'])" class="btn-primary font-semibold py-2 px-8 rounded-full shadow-lg">
                         Final Phase →
                     </button>
                 </div>
@@ -438,14 +450,47 @@
 
                 <div class="mt-8 flex justify-between">
                     <button onclick="prevStep(4)" class="text-gray-500 hover:text-pink-500 font-medium px-4">← Back</button>
+                    <button onclick="saveAndNext(5, 6, ['q-emojis', 'q-pickup', 'q-rule'])" class="btn-primary font-semibold py-2 px-8 rounded-full shadow-lg">
+                        Next Phase →
+                    </button>
+                </div>
+            </div>
+
+            <!-- STEP 6: Emergency Protocols -->
+            <div id="step-6" class="step-container">
+                <h2 class="text-2xl font-bold mb-2 text-pink-500">Phase 5: Emergency Protocols 🚨</h2>
+                <p class="text-sm mb-6 text-gray-500 dark:text-gray-400">Let's see how you handle real-world CEO crises.</p>
+                
+                <div class="space-y-5">
+                    <div>
+                        <label class="block font-medium mb-1">1. The CEO had a bad day and is being grumpy. Your reaction? 🥺</label>
+                        <textarea id="q-grumpy" rows="2" class="input-field" placeholder="I would immediately..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">2. You're both hungry. He says "I don't know, you pick". Your move? 🍕</label>
+                        <input type="text" id="q-food" class="input-field" placeholder="My strategy is...">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-1">3. Will you hold his hand in public even if his hands are sweaty? 🤝</label>
+                        <select id="q-hand" class="input-field cursor-pointer">
+                            <option value="">-- Be honest --</option>
+                            <option value="Yes, obviously! 🥰">Yes, obviously! 🥰</option>
+                            <option value="I'll hold his arm instead 💪">I'll hold his arm instead 💪</option>
+                            <option value="Ew, no, he needs a tissue 🤧">Ew, no, he needs a tissue 🤧</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-between">
+                    <button onclick="prevStep(5)" class="text-gray-500 hover:text-pink-500 font-medium px-4">← Back</button>
                     <button onclick="submitApplication()" class="btn-primary font-semibold py-2 px-8 rounded-full shadow-lg">
                         Submit Application 🚀
                     </button>
                 </div>
             </div>
 
-            <!-- STEP 6: Loading / Analysis Screen -->
-            <div id="step-6" class="step-container text-center py-10">
+            <!-- STEP 7: Loading / Analysis Screen -->
+            <div id="step-7" class="step-container text-center py-10">
                 <div class="inline-block relative w-20 h-20 mb-8">
                     <div class="absolute top-0 left-0 w-full h-full border-4 border-pink-200 rounded-full"></div>
                     <div class="absolute top-0 left-0 w-full h-full border-4 border-pink-500 rounded-full border-t-transparent animate-spin"></div>
@@ -457,8 +502,8 @@
                 </div>
             </div>
 
-            <!-- STEP 7: Final Offer Letter -->
-            <div id="step-7" class="step-container">
+            <!-- STEP 8: Final Offer Letter -->
+            <div id="step-8" class="step-container">
                 <div class="border-4 border-double border-pink-300 p-6 rounded-2xl bg-white/50 dark:bg-black/20 text-center relative overflow-hidden">
                     <div class="absolute -top-4 -right-4 text-6xl opacity-20 transform rotate-12">📝</div>
                     <h1 class="font-cursive text-4xl text-pink-600 mb-2">Offer Letter</h1>
@@ -493,12 +538,12 @@
                 </div>
             </div>
 
-            <!-- STEP 8: Success / Hired Screen -->
-            <div id="step-8" class="step-container text-center">
+            <!-- STEP 9: Success / Hired Screen -->
+            <div id="step-9" class="step-container text-center">
                 <h1 class="font-cursive text-5xl text-pink-600 dark:text-pink-400 mb-2">Welcome to the Team!</h1>
                 <p class="text-xl mb-8">Status: <span class="font-bold text-green-500 bg-green-100 dark:bg-green-900/30 px-3 py-1 rounded-full">HIRED ❤️</span></p>
 
-                <!-- ID Card (To be exported as PDF) -->
+                <!-- ID Card -->
                 <div id="certificate-node" class="mx-auto max-w-sm bg-gradient-to-br from-pink-100 to-white dark:from-gray-800 dark:to-gray-900 border-2 border-pink-300 rounded-2xl p-6 shadow-xl relative overflow-hidden text-left mb-8">
                     <div class="absolute top-0 right-0 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">OFFICIAL</div>
                     <div class="flex items-center gap-4 mb-4 border-b border-pink-200 dark:border-gray-700 pb-4">
@@ -577,7 +622,7 @@
 
     <script>
         // --- State Management ---
-        const TOTAL_STEPS = 8;
+        const TOTAL_STEPS = 9;
         let currentStep = 0;
         let applicantData = JSON.parse(localStorage.getItem('tammsaf_data')) || {};
 
@@ -590,14 +635,19 @@
             'drink': 'Beverage Preference',
             'vacation': 'Vacation Preference',
             'vibe': 'Vibe Check',
+            'sunday': 'Perfect Sunday Morning',
             'q-lovelanguage': 'Primary Love Language',
             'q-humor': 'CEO Humor Rating (/10)',
             'q-steal': 'Item to Steal',
             'q-nickname': 'CEO Nickname',
             'q-ceo-is': 'The CEO is...',
+            'q-feature': 'Favorite CEO Feature',
             'q-emojis': 'Dream Date (Emojis)',
             'q-pickup': 'Pickup Line',
-            'q-rule': 'Mandatory Company Rule'
+            'q-rule': 'Mandatory Company Rule',
+            'q-grumpy': 'Protocol for Grumpy CEO',
+            'q-food': 'Food Indecision Protocol',
+            'q-hand': 'Hand Holding Policy'
         };
 
         // --- Initialization ---
@@ -607,7 +657,12 @@
             if (applicantData._completed) {
                 // If they already finished, jump to end
                 document.getElementById('cert-name').innerText = applicantData['q-nickname'] || 'Awesome Candidate';
-                showStep(8);
+                
+                if (applicantData['q-photo']) {
+                    document.getElementById('id-photo-container').innerHTML = `<img src="${applicantData['q-photo']}" class="w-full h-full object-cover" alt="ID Photo">`;
+                }
+                
+                showStep(9);
             } else if (applicantData._lastStep && applicantData._lastStep > 0) {
                 // Pre-fill inputs from localstorage
                 restoreInputs();
@@ -634,16 +689,16 @@
             
             // UI updates
             const nav = document.getElementById('main-nav');
-            if (stepIndex > 0 && stepIndex < 6) {
+            if (stepIndex > 0 && stepIndex < 7) {
                 nav.classList.remove('hidden');
-                const progress = ((stepIndex) / 5) * 100;
+                const progress = ((stepIndex) / 6) * 100;
                 document.getElementById('progress-bar').style.width = `${progress}%`;
             } else {
                 nav.classList.add('hidden');
             }
 
             // Save state
-            if (stepIndex < 6) {
+            if (stepIndex < 7) {
                 applicantData._lastStep = stepIndex;
                 saveData();
             }
@@ -681,7 +736,7 @@
                     } else {
                         el.value = applicantData[key];
                     }
-                } else if (['drink', 'vacation', 'vibe'].includes(key)) {
+                } else if (['drink', 'vacation', 'vibe', 'sunday'].includes(key)) {
                     // Restore choice cards
                     const cards = document.querySelectorAll(`[onclick*="'${key}'"]`);
                     cards.forEach(c => {
@@ -749,8 +804,8 @@
 
         // --- Phase 4 to Loading ---
         function submitApplication() {
-            // Validate step 5
-            const ids = ['q-emojis', 'q-pickup', 'q-rule'];
+            // Validate step 6 (Emergency Protocols)
+            const ids = ['q-grumpy', 'q-food', 'q-hand'];
             let valid = true;
             ids.forEach(id => {
                 const el = document.getElementById(id);
@@ -759,7 +814,7 @@
             });
 
             if(!valid) {
-                showCustomAlert("Almost there!", "<p>Don't leave the challenges blank!</p>", "🎨");
+                showCustomAlert("Almost there!", "<p>Don't leave the emergency protocols blank!</p>", "🚨");
                 return;
             }
             
@@ -768,7 +823,7 @@
         }
 
         async function runAnalysis() {
-            showStep(6); // Show loading step
+            showStep(7); // Show loading step
             const display = document.getElementById('analysis-text');
             display.innerHTML = ''; // clear
 
@@ -803,7 +858,7 @@
 
             // Move to offer letter
             setTimeout(() => {
-                showStep(7);
+                showStep(8);
             }, 1500);
         }
 
@@ -834,7 +889,7 @@
                 document.getElementById('id-photo-container').innerHTML = `<img src="${applicantData['q-photo']}" class="w-full h-full object-cover" alt="ID Photo">`;
             }
             
-            showStep(8);
+            showStep(9);
             fireConfetti();
         }
 
